@@ -1,0 +1,11 @@
+{
+	"name": "wpelevator/encrypted-secrets",
+	"type": "library",
+	"minimum-stability": "dev",
+	"autoload": {
+		"classmap": [
+			"php/"
+		]
+	},
+	"require": {}
+}
