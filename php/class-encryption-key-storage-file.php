@@ -2,7 +2,7 @@
 
 namespace WPElevator\Encrypted_Secrets;
 
-class Secret_Storage_File extends Secret_Storage {
+class Encryption_Key_Storage_File implements Encryption_Key_Storage_Interface {
 	protected string $file;
 
 	public function __construct( string $file_path ) {
@@ -13,7 +13,7 @@ class Secret_Storage_File extends Secret_Storage {
 		return is_writable( dirname( $this->file ) );
 	}
 
-	public function set( string $secret_key ): bool {
+	public function set_key( string $secret_key ): bool {
 		$secret = [
 			'key' => base64_encode( $secret_key ),
 			'created' => time(),
@@ -28,7 +28,7 @@ class Secret_Storage_File extends Secret_Storage {
 		return false;
 	}
 
-	public function get(): ?string {
+	public function get_key(): ?string {
 		if ( is_readable( $this->file ) ) {
 			$secret = include $this->file;
 

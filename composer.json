@@ -1,11 +1,11 @@
 {
 	"name": "wpelevator/encrypted-secrets",
 	"type": "library",
+	"license": "GPL-2.0-or-later",
 	"minimum-stability": "dev",
 	"autoload": {
 		"classmap": [
 			"php/"
 		]
-	},
-	"require": {}
+	}
 }

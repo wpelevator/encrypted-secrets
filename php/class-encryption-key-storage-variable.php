@@ -2,7 +2,7 @@
 
 namespace WPElevator\Encrypted_Secrets;
 
-class Secret_Storage_Variable extends Secret_Storage {
+class Encryption_Key_Storage_Variable implements Encryption_Key_Storage_Interface {
 
 	private string $secret_key;
 
@@ -14,13 +14,13 @@ class Secret_Storage_Variable extends Secret_Storage {
 		return true; // Always supported.
 	}
 
-	public function set( string $secret_key ): bool {
+	public function set_key( string $secret_key ): bool {
 		$this->secret_key = $secret_key;
 
 		return true; // Can be adjusted.
 	}
 
-	public function get(): ?string {
+	public function get_key(): ?string {
 		return $this->secret_key;
 	}
 }

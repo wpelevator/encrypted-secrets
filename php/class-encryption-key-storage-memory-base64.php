@@ -2,7 +2,7 @@
 
 namespace WPElevator\Encrypted_Secrets;
 
-class Secret_Storage_Memory_Base64 extends Secret_Storage {
+class Encryption_Key_Storage_Memory_Base64 implements Encryption_Key_Storage_Interface {
 
 	private string $constant_or_env_name;
 
@@ -14,11 +14,11 @@ class Secret_Storage_Memory_Base64 extends Secret_Storage {
 		return true; // Always supported.
 	}
 
-	public function set( string $secret_key ): bool {
+	public function set_key( string $secret_key ): bool {
 		return false; // This is read-only.
 	}
 
-	public function get(): ?string {
+	public function get_key(): ?string {
 		$secret = getenv( $this->constant_or_env_name );
 
 		if ( empty( $secret ) && defined( $this->constant_or_env_name ) ) {
