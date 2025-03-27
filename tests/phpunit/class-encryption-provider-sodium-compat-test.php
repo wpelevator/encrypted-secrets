@@ -5,7 +5,7 @@ namespace WPElevator\Encrypted_Secrets_Tests;
 use PHPUnit\Framework\TestCase;
 use SodiumException;
 use WPElevator\Encrypted_Secrets\Encryption_Provider_Sodium_Compat;
-use WPElevator\Encrypted_Secrets\Encryption_Key_Storage_File;
+use WPElevator\Encrypted_Secrets\Encryption_Key_Storage_PHP_File;
 use WPElevator\Encrypted_Secrets\Encryption_Key_Storage_Variable;
 
 class Encryption_Provider_Sodium_Compat_Test extends TestCase {
@@ -62,7 +62,7 @@ class Encryption_Provider_Sodium_Compat_Test extends TestCase {
 	}
 
 	public function test_encrypt_with_valid_secret_from_file() {
-		$secret_storage = new Encryption_Key_Storage_File( __DIR__ . '/stubs/secret-sodium-valid-key.php' );
+		$secret_storage = new Encryption_Key_Storage_PHP_File( __DIR__ . '/stubs/secret-sodium-valid-key.php' );
 		$provider = new Encryption_Provider_Sodium_Compat();
 
 		$this->assertNotEmpty( $secret_storage->get_key(), 'Valid secret was resolved from the file' );
@@ -72,7 +72,7 @@ class Encryption_Provider_Sodium_Compat_Test extends TestCase {
 	}
 
 	public function test_encrypt_with_invalid_secret_from_file() {
-		$secret_storage = new Encryption_Key_Storage_File( __DIR__ . '/stubs/secret-sodium-invalid-key.php' );
+		$secret_storage = new Encryption_Key_Storage_PHP_File( __DIR__ . '/stubs/secret-sodium-invalid-key.php' );
 		$provider = new Encryption_Provider_Sodium_Compat();
 
 		$this->assertNotEmpty( $secret_storage->get_key(), 'Invalid secret was resolved from the file' );

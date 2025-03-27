@@ -41,7 +41,7 @@ Store secrets in PHP files:
 using the following API:
 
 ```php
-$secret_storage = new WPElevator\Encrypted_Secrets\Encryption_Key_Storage_File( '/path/to/secret.php' );
+$secret_storage = new WPElevator\Encrypted_Secrets\Encryption_Key_Storage_PHP_File( '/path/to/secret.php' );
 $encryption_key = $secret_storage->get_key();
 
 if ( ! $encryption_key && $secret_storage->is_supported() ) {
@@ -61,7 +61,7 @@ if ( $encryption_key ) {
 Note that WordPress core already includes [`ParagonIE_Sodium_Compat`](https://github.com/WordPress/WordPress/tree/b68a7b5200d65557f8c055c448875a0a821f9be0/wp-includes/sodium_compat) as a fallback for PHP installations that do not have the [`sodium` extension](https://www.php.net/manual/en/book.sodium.php) available.
 
 ```php
-$secret_storage = new WPElevator\Encrypted_Secrets\Encryption_Key_Storage_File( '/path/to/secret.php' );
+$secret_storage = new WPElevator\Encrypted_Secrets\Encryption_Key_Storage_PHP_File( '/path/to/secret.php' );
 $encryption = new WPElevator\Encrypted_Secrets\Encryption_Provider_Sodium_Compat();
 
 if ( $encryption->is_supported() ) {

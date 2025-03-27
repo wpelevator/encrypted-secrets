@@ -2,7 +2,7 @@
 
 namespace WPElevator\Encrypted_Secrets;
 
-class Encryption_Key_Storage_File implements Encryption_Key_Storage_Interface {
+class Encryption_Key_Storage_PHP_File implements Encryption_Key_Storage_Interface {
 	protected string $file;
 
 	public function __construct( string $file_path ) {
